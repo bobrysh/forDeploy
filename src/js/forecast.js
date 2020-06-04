@@ -1,4 +1,5 @@
 import {languageURL,weatherParameters,buttonTemperature,appTemperature,currTemperature,firstDay,secondDay,thirdDay} from './Constants/constants';
+import {getTime} from './timer'
 
 
 export async function getWeatherForecast() {
@@ -6,6 +7,14 @@ export async function getWeatherForecast() {
     const weatherApiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&window.lang=${languageURL[window.lang]}&units=metric&APPID=9e6da5e116f6b026eff42627fb289a55`;
     const response = await fetch(weatherApiURL);
     const data = await response.json();
+
+    let clockInterval;
+
+    if (document.querySelector('#search__input').value) {
+      clockInterval = setInterval(() => getTime(`${data.city.timezone}`), 1000);
+    }else{
+      clearInterval(clockInterval);
+    }
 
     function change(temperature) {
       return Math.round((9 / 5) * temperature + 32);

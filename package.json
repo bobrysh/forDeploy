@@ -50,6 +50,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "moment": "^2.26.0",
+    "moment-timezone": "^0.5.31",
     "circular-dependency-plugin": "^5.2.0",
     "core-js": "^3.6.5",
     "regenerator-runtime": "^0.13.5"

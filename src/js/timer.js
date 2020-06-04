@@ -1,21 +1,14 @@
-import {languageURL,currentCity} from './Constants/constants';
+import moment from 'moment';
+import 'moment-timezone';
+import {languageURL} from './Constants/constants';
 
-export async function getTime() {
-    const weatherApiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&window.lang=${languageURL[window.lang]}&units=metric&APPID=9e6da5e116f6b026eff42627fb289a55`;
-    const response = await fetch(weatherApiURL);
-    const data = await response.json();
-    const time = new Date();
-    const timezone = (data.city.timezone / 3600) - 3;
-    const hour = time.getHours() + timezone;
-    let minute = time.getMinutes();
-    let second = time.getSeconds();
-    const currentTime = document.querySelector('#currentTime');
-    function seconds(){
-        currentTime.textContent = `${hour  }:${  minute}:${  second += 1}`;
-        if(second >= 59){
-            second = 0
-            minute += 1
-        }
-    }
-      setInterval(() => seconds(), 1000);
-  }
+
+export const getTime = async () => {
+  const clockContainer = document.querySelector('#currentTime');
+  const currentCity = document.querySelector('#search__input').value;
+  const weatherApiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&window.lang=${languageURL[window.lang]}&units=metric&APPID=9e6da5e116f6b026eff42627fb289a55`;
+  const response = await fetch(weatherApiURL);
+  const data = await response.json();
+  const clockWithTimezone = moment().utcOffset(data.city.timezone/60).format('h:mm:ss');
+  clockContainer.textContent = `${clockWithTimezone}`;
+};
