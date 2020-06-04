@@ -1,6 +1,6 @@
 import {languageURL,currentCity} from './Constants/constants';
 
-export async function Timer() {
+export async function getTime() {
     const weatherApiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&window.lang=${languageURL[window.lang]}&units=metric&APPID=9e6da5e116f6b026eff42627fb289a55`;
     const response = await fetch(weatherApiURL);
     const data = await response.json();

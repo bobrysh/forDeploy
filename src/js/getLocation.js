@@ -3,7 +3,7 @@ import { daysNames } from './futureDays'
 import { voiceSearch } from './voiceSearch'
 import { handleClick } from './clicks';
 import { getCoordinatesAndMap } from './map';
-import { Timer } from './timer';
+import { getTime } from './timer';
 import { getImg } from './getImg';
 
 export function getUserGeolocation() {
@@ -18,7 +18,7 @@ export function getUserGeolocation() {
         voiceSearch();
         daysNames();
         handleClick();
-        Timer();
+        getTime();
       })
       .catch(() => console.log('Try again!'));
   }
