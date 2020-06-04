@@ -65,9 +65,6 @@ const config = {
             options: {
               sourceMap: true
             }
-          }, {
-            loader: 'postcss-loader',
-            options: { sourceMap: true, config: { path: './postcss.config.js' } }
           }
         ]
       },
