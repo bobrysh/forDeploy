@@ -34,7 +34,12 @@ const config = {
   mode: setDMode(),
   devtool: setDevTool(),
   module: {
-    rules: [{
+    rules: [      
+      {
+      test: /\.exec.js$/,
+      use: [ 'script-loader' ]
+      },
+      {
         test: /\.html$/,
         use: [{
           loader: 'html-loader',
@@ -148,6 +153,7 @@ const config = {
       // {from: './src/static', to: './'},
       // {from: './src/img', to: './img/'},
     ]),
+    // new CircularDependencyPlugin(),
   ],
 
   devServer: {
