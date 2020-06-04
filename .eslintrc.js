@@ -17,5 +17,6 @@ module.exports = {
     },
     "rules": {
         "import/prefer-default-export": "off",
+        "no-new": 0,
     }
 };

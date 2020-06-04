@@ -12,10 +12,10 @@ export const coordinatesNames = [
 ['Latitude: ', 'Широта: ', 'Шырата: '],
 ['Longitude: ', 'Долгота: ', 'Даўгата: ']
 ];
-export const at = document.querySelector('#apparentTemperature');
-export const ct = document.querySelector('#currentTemperature');
-export const fdt = document.querySelector('#dayOne');
-export const sdt = document.querySelector('#dayTwo');
-export const tdt = document.querySelector('#dayThree');
+export const appTemperature = document.querySelector('#apparentTemperature');
+export const currTemperature = document.querySelector('#currentTemperature');
+export const firstDay = document.querySelector('#dayOne');
+export const secondDay = document.querySelector('#dayTwo');
+export const thirdDay = document.querySelector('#dayThree');
 export const currentCity = document.querySelector('#search__input').value || 'Vorkuta'; 
 

@@ -17,9 +17,10 @@ export async function getCoordinatesAndMap() {
   
     document.querySelector('#latitude').textContent = `${coordinatesNames[0][window.lang]}  ${latitude}`;
     document.querySelector('#longitude').textContent = `${coordinatesNames[1][window.lang]}  ${longitude}`;
-  
+
+
     mapboxgl.accessToken = "pk.eyJ1IjoiYm9icnlzaCIsImEiOiJja2FyMmZzZWgwYXg5MnJscmE5OGR4cjQ5In0.0_yw8YWFZ4ImTQ-rs_XPPA";
-    const map = new mapboxgl.Map({
+    new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/satellite-streets-v11',
       center: [longitude, latitude],

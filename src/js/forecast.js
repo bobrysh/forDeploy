@@ -1,4 +1,4 @@
-import {languageURL,weatherParameters,buttonTemperature,at,ct,fdt,sdt,tdt} from './Constants/constants';
+import {languageURL,weatherParameters,buttonTemperature,appTemperature,currTemperature,firstDay,secondDay,thirdDay} from './Constants/constants';
 
 
 export async function getWeatherForecast() {
@@ -29,9 +29,9 @@ export async function getWeatherForecast() {
     dayTwo = getFutureTemperature(8);
     dayThree = getFutureTemperature(16);
 
-    fdt.textContent = dayOne;
-    sdt.textContent = dayTwo;
-    tdt.textContent = dayThree;
+    firstDay.textContent = dayOne;
+    secondDay.textContent = dayTwo;
+    thirdDay.textContent = dayThree;
 
     const currentTemperature = Math.round(data.list[0].main.temp);
     document.querySelector('#currentTemperature').textContent = currentTemperature;
@@ -62,19 +62,19 @@ export async function getWeatherForecast() {
     function changeTemperature() {
       const temperatureText = buttonTemperature.textContent
       if (temperatureText === 'C') {
-      at.textContent = `Perceived temperature: ${  change(apparentTemperature)}`;
-      ct.textContent = change(currentTemperature);
-      fdt.textContent = change(dayOne);
-      sdt.textContent = change(dayTwo);
-      tdt.textContent = change(dayThree);
+      appTemperature.textContent = `Perceived temperature: ${  change(apparentTemperature)}`;
+      currTemperature.textContent = change(currentTemperature);
+      firstDay.textContent = change(dayOne);
+      secondDay.textContent = change(dayTwo);
+      thirdDay.textContent = change(dayThree);
       buttonTemperature.textContent = 'F';
       }
       else {
-      at.textContent = `Perceived temperature: ${  apparentTemperature}`;
-      ct.textContent = currentTemperature;
-      fdt.textContent = dayOne;
-      sdt.textContent = dayTwo;
-      tdt.textContent = dayThree;
+      appTemperature.textContent = `Perceived temperature: ${  apparentTemperature}`;
+      currTemperature.textContent = currentTemperature;
+      firstDay.textContent = dayOne;
+      secondDay.textContent = dayTwo;
+      thirdDay.textContent = dayThree;
       buttonTemperature.textContent = 'C';
     }
   }
