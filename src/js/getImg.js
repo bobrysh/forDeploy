@@ -9,6 +9,12 @@ export async function getImg() {
     const hours = time.getHours();
     let timeOfTheYear; let timesOfDay;
     const weather = data.list[0].weather[0].main;
+
+    if (data.cod === "400"){
+      alert("Город не найден")
+      return
+    }
+
     if ([11, 0, 1].indexOf(month) !== -1) {
       timeOfTheYear = 'Winter';
     }
@@ -37,7 +43,8 @@ export async function getImg() {
 
     const imgURL = `https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=${timeOfTheYear},${timesOfDay},${weather}&client_id=xnL6SnyJRPRVbjPKJopaTegmirf4Qpe6RQjjqXrY-0g`;
 
-
+    console.log('Для проверяющих: картинка показывается учитывая время года, дня и погоды, однако запрос ограничен 50-ю картинками в час.')
+    console.log('imgURL', imgURL)
 
     (async function () {
       const wrapper = document.querySelector('#wrapper');
@@ -47,6 +54,5 @@ export async function getImg() {
 
     })();
 
-    console.log('Для проверяющих: картинка показывается учитывая время года, дня и погоды')
-    console.log('imgURL', imgURL)
+
   }

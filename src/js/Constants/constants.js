@@ -17,5 +17,5 @@ export const currTemperature = document.querySelector('#currentTemperature');
 export const firstDay = document.querySelector('#dayOne');
 export const secondDay = document.querySelector('#dayTwo');
 export const thirdDay = document.querySelector('#dayThree');
-export const currentCity = document.querySelector('#search__input').value || 'Vorkuta'; 
+export const currentCity = document.querySelector('#search__input').value; 
 
