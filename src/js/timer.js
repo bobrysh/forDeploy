@@ -10,7 +10,7 @@ export const getTime = async () => {
     const response = await fetch(weatherApiURL);
     const data = await response.json();
 
-    if (data.cod === "400"){
+    if (data.cod === "400" || data.cod === "404"){
       alert("Город не найден")
       return
     }
