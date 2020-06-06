@@ -14,11 +14,11 @@ export function getUserGeolocation() {
         document.querySelector('#search__input').value = data.city
         getWeatherForecast(); 
         getCoordinatesAndMap();
-        getImg();
         voiceSearch();
         daysNames();
         handleClick();
         getTime();
+        getImg();
       })
       .catch(() => console.log('Try again!'));
   }

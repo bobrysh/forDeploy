@@ -1,6 +1,8 @@
-import {currentCity,languageURL} from './Constants/constants';
+/* eslint-disable no-console */
+import {languageURL} from './Constants/constants';
 
 export async function getImg() {
+    const currentCity = document.querySelector('#search__input').value; 
     const weatherApiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&window.lang=${languageURL[window.lang]}&units=metric&APPID=9e6da5e116f6b026eff42627fb289a55`;
     const response = await fetch(weatherApiURL);
     const data = await response.json();
@@ -14,6 +16,8 @@ export async function getImg() {
       alert("Город не найден")
       return
     }
+
+    
 
     if ([11, 0, 1].indexOf(month) !== -1) {
       timeOfTheYear = 'Winter';
@@ -43,9 +47,11 @@ export async function getImg() {
 
     const imgURL = `https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=${timeOfTheYear},${timesOfDay},${weather}&client_id=xnL6SnyJRPRVbjPKJopaTegmirf4Qpe6RQjjqXrY-0g`;
 
-    console.log('Для проверяющих: картинка показывается учитывая время года, дня и погоды, однако запрос ограничен 50-ю картинками в час.')
-    console.log('imgURL', imgURL)
 
+    console.log('Для проверяющих: картинка показывается учитывая время года, дня и погоды, однако запрос ограничен 50-ю картинками в час.');
+    console.log('imgURL', imgURL);
+
+    
     (async function () {
       const wrapper = document.querySelector('#wrapper');
       const responseImg = await fetch(imgURL);

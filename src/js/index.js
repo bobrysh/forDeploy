@@ -11,6 +11,7 @@ loadJs('https://kit.fontawesome.com/6c53f4905f.js');
 loadCss('https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css');
 currentLanguage.textContent = 'En';
 window.onload = function(){
+  
   window.lang = 0;
   currentLanguage.addEventListener('click',()=>{
     window.lang += 1;
